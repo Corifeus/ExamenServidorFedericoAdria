@@ -6,6 +6,14 @@ all_empresa:
     path:     /empresa/all
     defaults: { _controller: gestorBundle:empresa:all }
 
+registrar_usuario:
+    path:     /register
+    defaults: { _controller: gestorBundle:register:registrar }
+
+Usuario_Registrado:
+    path:     /register/msgExito
+    defaults: { _controller: gestorBundle:register:msgExito }
+
 #empresa_crear:
  #   path:     /empresa/new
  #   defaults: { _controller: gestorBundle:empresa:crearEmpresa }
