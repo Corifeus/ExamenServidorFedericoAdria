@@ -3,18 +3,28 @@
 security:
     encoders:
         gestorBundle\Entity\User: bcrypt
+        Symfony\Component\Security\Core\User\User: plaintext
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+      in_memory:
+            memory:
+                users:
+                    admin:
+                        password: 1234
+                        roles: 'ROLE_ADMIN'
+                    ungatogiratorio:
+                        password: 1234
+                        roles: 'ROLE_ADMIN'
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
+        user:
+            pattern: ^/
+            http_basic: ~
         main:
             anonymous: ~
             # activate different ways to authenticate
