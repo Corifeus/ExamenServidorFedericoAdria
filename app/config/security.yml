@@ -22,6 +22,8 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+
         user:
             pattern: ^/
             http_basic: ~

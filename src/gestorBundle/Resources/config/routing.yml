@@ -14,6 +14,14 @@ Usuario_Registrado:
     path:     /register/msgExito
     defaults: { _controller: gestorBundle:register:msgExito }
 
+Usuarios:
+    path:     /usuarios
+    defaults: { _controller: gestorBundle:usuarios:usuarios }
+
+Usuarios_login:
+    path:     /usuarios/login
+    defaults: { _controller: gestorBundle:usuarios:login}
+
 #empresa_crear:
  #   path:     /empresa/new
  #   defaults: { _controller: gestorBundle:empresa:crearEmpresa }
