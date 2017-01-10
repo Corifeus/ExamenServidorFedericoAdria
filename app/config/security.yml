@@ -13,9 +13,6 @@ security:
                     admin:
                         password: 1234
                         roles: 'ROLE_ADMIN'
-                    ungatogiratorio:
-                        password: 1234
-                        roles: 'ROLE_ADMIN'
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -23,10 +20,18 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-
-        user:
-            pattern: ^/
+        admin:
+            pattern: ^/admin
             http_basic: ~
+
+        usuarios:
+            pattern: ^/
+            anonymous: ~
+            provider:  in_memory
+            form_login:
+                login_path: /usuarios/login
+                check_path: /usuarios/login
+
         main:
             anonymous: ~
             # activate different ways to authenticate

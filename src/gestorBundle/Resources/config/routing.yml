@@ -18,7 +18,7 @@ Usuarios:
     path:     /usuarios
     defaults: { _controller: gestorBundle:usuarios:usuarios }
 
-Usuarios_login:
+login:
     path:     /usuarios/login
     defaults: { _controller: gestorBundle:usuarios:login}
 
