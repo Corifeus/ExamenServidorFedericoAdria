@@ -10,7 +10,6 @@ security:
       our_db_provider:
         entity:
           class: gestorBundle:User
-          property: username
       in_memory:
             memory:
                 users:
@@ -33,7 +32,7 @@ security:
                 check_path: /usuarios/login
             logout:
                 path:   /usuarios/logout
-                target: /usuarios
+                target: /usuarios  
         main:
             anonymous: ~
             # activate different ways to authenticate
