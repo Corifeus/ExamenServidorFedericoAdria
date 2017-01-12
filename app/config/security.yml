@@ -7,6 +7,10 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
+      our_db_provider:
+        entity:
+          class: gestorBundle:User
+          property: username
       in_memory:
             memory:
                 users:
@@ -20,18 +24,16 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        admin:
-            pattern: ^/empresa/all
-            http_basic: ~
-
         usuarios:
             pattern: ^/*
             anonymous: ~
-            provider: in_memory
+            provider: our_db_provider
             form_login:
                 login_path: /usuarios/login
                 check_path: /usuarios/login
-
+            logout:
+                path:   /usuarios/logout
+                target: /usuarios
         main:
             anonymous: ~
             # activate different ways to authenticate
@@ -42,5 +44,6 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
+            - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/usuarios, roles: ROLE_ADMIN }
+            - { path: ^/, roles: ROLE_USER }

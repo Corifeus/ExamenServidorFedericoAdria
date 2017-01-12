@@ -13,7 +13,7 @@ class usuariosController extends Controller
 
     public function usuariosAction()
     {
-        return $this->render('gestorBundle:usuarios:index.html.twig');
+        return $this->render('gestorBundle:usuarios:usuarios.html.twig');
     }
 
     public function loginAction()
