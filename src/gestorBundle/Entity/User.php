@@ -4,6 +4,7 @@ namespace gestorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -19,6 +20,7 @@ class User implements UserInterface
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Assert\NotBlank()
      */
     private $id;
 
@@ -26,6 +28,13 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 32,
+     *      minMessage = "Minimo 4",
+     *      maxMessage = "Maximo 32"
+     * )
      */
     private $username;
 
@@ -33,6 +42,11 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "No es un email correcto",
+     *     checkMX = true
+     * )
      */
     private $email;
 
@@ -40,6 +54,9 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=64)
+     * @Assert\NotBlank()
+     *      min = 8,
+     *      minMessage = "Minimo 8",     
      */
     private $password;
 
@@ -97,7 +114,7 @@ class User implements UserInterface
      {
        $this->plainPassword = $password;
      }
-     
+
     public function setEmail($email)
     {
         $this->email = $email;
