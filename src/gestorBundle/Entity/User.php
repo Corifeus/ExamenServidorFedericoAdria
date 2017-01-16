@@ -20,7 +20,6 @@ class User implements UserInterface
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Assert\NotBlank()
      */
     private $id;
 
@@ -54,9 +53,10 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=64)
-     * @Assert\NotBlank()
-     *      min = 8,
-     *      minMessage = "Minimo 8",     
+     * @Assert\Regex(
+     *     pattern     = "/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/i",
+     *     htmlPattern = "^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
+     * )
      */
     private $password;
 
