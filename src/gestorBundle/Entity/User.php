@@ -53,13 +53,34 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=64)
-     * @Assert\Regex(
-     *     pattern     = "/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/i",
-     *     htmlPattern = "^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
-     * )
      */
     private $password;
 
+    /**
+    * @Assert\NotBlank(
+    *     message="No la dejes en blanco,si no va a ser un poco dificil hacer login"
+    * )
+    * @Assert\Regex(
+    *     pattern="/^.*[A-Z]+.*$/",
+    *     match=true,
+    *     message="Usa al menos una mayuscula"
+    * )
+    * @Assert\Regex(
+    *     pattern="/^.*[0-9].*$/",
+    *     match=true,
+    *     message="Usa al menos un numero"
+    * )
+    * @Assert\Regex(
+    *     pattern="/^.*[a-z].*$/",
+    *     match=true,
+    *     message="Usa al menos una minuscula"
+    * )
+    * @Assert\Length(
+    *      min = 8,
+    *      minMessage = "Usa al menos 8 caracteres"
+    * )
+    */
+    private $plainPassword;
 
     /**
      * Get id
@@ -70,8 +91,6 @@ class User implements UserInterface
     {
         return $this->id;
     }
-
-    private $plainPassword;
 
     /**
      * Set username
