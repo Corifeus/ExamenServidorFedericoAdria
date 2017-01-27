@@ -32,6 +32,10 @@ class registerController extends Controller
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
+            // 3.5) Add the role of the user
+            $roles = ["ROLE_USUARIO"];
+            $user->setRoles($roles);
+
             // 4) save the User!
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);

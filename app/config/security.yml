@@ -30,9 +30,10 @@ security:
             form_login:
                 login_path: /usuarios/login
                 check_path: /usuarios/login
+                default_target_path: /usuarios
             logout:
                 path:   /usuarios/logout
-                target: /usuarios  
+                target: /usuarios
         main:
             anonymous: ~
             # activate different ways to authenticate
@@ -45,4 +46,4 @@ security:
     access_control:
             - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/, roles: ROLE_USER }
+            - { path: ^/, roles: ROLE_USUARIO }
