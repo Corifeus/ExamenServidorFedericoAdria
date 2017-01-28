@@ -38,6 +38,10 @@ alumnosAll:
   path:       /alumno/all
   defaults: { _controller: gestorBundle:alumno:alumnosAll }
 
+zonadmin:
+  path:       /admin
+  defaults: { _controller: gestorBundle:admin:index }
+
 jsonempresas:
     path: /empresas
     defaults: {_controller: gestorBundle:empresasAPI:generarJSON}

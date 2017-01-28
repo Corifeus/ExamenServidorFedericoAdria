@@ -1,13 +1,7 @@
-<html>
-	<head>
-		<title>Todas las empresas</title>
-		<meta charset="UTF-8">
-		<link href="{{ asset('/css/nuevaEmpresa.css') }}" rel="stylesheet" />
-	</head>
+{% extends "::base.html.twig" %}
 
-	<body>
+{% block contenido %}
 		<div id="contenedorForm">
 			{{form(form)}}
 		</div>
-	</body>
-</html>
+	{% endblock %}

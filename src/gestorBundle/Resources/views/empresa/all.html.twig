@@ -1,18 +1,14 @@
-<html>
-	<head>
-		<title>Todas las empresas</title>
-		<meta charset="UTF-8">
-		<link href="{{ asset('/css/estilos.css') }}" rel="stylesheet" />
-	</head>
-	
-	<body>
+{% extends "::base.html.twig" %}
+
+{% block contenido %}
+
 		<table>
 			<tr>
 				<td>Nombre</td>
 				<td>Direccion</td>
 				<td>CP</td>
 				<td>Telefono1</td>
-				<td>Telefono2</td>				
+				<td>Telefono2</td>
 			</tr>
 			{% for empresa in empresas %}
 				<tr>
@@ -24,5 +20,4 @@
 				</tr>
 			{% endfor %}
 		</table>
-	</body>
-</html>
+	{% endblock %}

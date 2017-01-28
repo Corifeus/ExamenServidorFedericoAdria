@@ -13,3 +13,9 @@
   background-color:#36364B;
    color:#88888E;
 }
+
+
+#principal a{
+  color: white;
+  display: block;
+}

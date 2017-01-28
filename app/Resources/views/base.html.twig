@@ -11,41 +11,31 @@
     </head>
 
     <body>
-
-        <div class="col">
-
-            <div class="col-md-3">
+            <span class="col-md-3">
 
                     <div id="cabecera">
                         <h1>fct</h1>
                         Gestor de prácticas en empresa
                     </div>
-  
+
                     <div id="principal">
-                        <h3>Principal</h3>
-                        <div>Listado de asignaciones</div>
-                        <div>Asignación</div>
-                        <h3>Maestros</h3>
+											<h2>Enlaces de la web</h2>
+											<a href="/">Inicio</a>
+											<a href="/empresa/all">Todas las empresas</a>
+											<a href="/register">Registrarse</a>
+											<a href="/usuarios">Usuarios</a>
+											<a href="/empresa/new">Nueva Empresa</a>
+											<a href="/alumno/all">Todos los alumnos</a>
+											<a href="/empresas">API empresas</a>
+											<a href="/usuarios/logout">Logout</a>
 
-                        <div id="empresa">Empresa</div>
-                            <ul>
-                                <li>ListadoEmpresas</li>
-                                <li>NuevaEmpresa</li>
-                            </ul>
+											{% if is_granted('ROLE_ADMIN') %}
+													<a href="/admin">Zona admin</a>
+											{% endif %}
 
-                        <div>Alumnos</div>
-                            <ul>
-                                <li>ListadoAlumnos</li>
-                            </ul>
-                
-                        <div>Tutores</div>
-
-                        <h3>Recursos</h3>
-                         <div>Recursos</div>
                     </div>
-            </div>
+            </span>
 
-            <div class="col-md-9">{% block contenido %}Contenido central{% endblock %}</div>
-        </div>
+            <span class="col-md-9">{% block contenido %}Contenido central{% endblock %}</span>
     </body>
 </html>

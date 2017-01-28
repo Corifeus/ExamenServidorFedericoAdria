@@ -1,4 +1,6 @@
-<body>
+{% extends "::base.html.twig" %}
+
+{% block contenido %}
 {# app/Resources/views/security/login.html.twig #}
 {# ... you will probably extend your base template, like base.html.twig #}
 
@@ -21,4 +23,4 @@
 
     <button type="submit">login</button>
 </form>
-</body>
+{% endblock %}
