@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block contenido %}
+
+		<table>
+			<tr>
+				<td>Param</td>
+				<td>Configuración</td>
+			</tr>
+			{% for configuracion in conf %}
+				<tr>
+					<td>{{ configuracion.param }}</td>
+					<td>{{ configuracion.configuracion }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	{% endblock %}

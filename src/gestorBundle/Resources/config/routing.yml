@@ -46,3 +46,18 @@ jsonempresas:
     path: /empresas
     defaults: {_controller: gestorBundle:empresasAPI:generarJSON}
     methods: [GET]
+
+
+#RUTAS EXAMEN SEGUNDA EVALUACIÓN
+
+tablaConfiguraciones:
+  path:       /config/all
+  defaults: { _controller: gestorBundle:conf:confAll }
+
+conf_nueva:
+    path:     /config/new
+    defaults: { _controller: gestorBundle:conf:nuevaConf }
+
+conf_msgExito:
+  path:     /config/msgExito
+  defaults: { _controller: gestorBundle:conf:msgExito }

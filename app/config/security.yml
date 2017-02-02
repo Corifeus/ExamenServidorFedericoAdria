@@ -44,6 +44,8 @@ security:
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
     access_control:
+            #Solo los super adminitradores pueden acceder a conf
+            - { path: ^/conf, roles: ROLE_SUPER_ADMIN }
             - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/, roles: ROLE_USUARIO }

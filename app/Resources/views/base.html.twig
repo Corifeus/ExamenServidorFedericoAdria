@@ -33,6 +33,12 @@
 													<a href="/admin">Zona admin</a>
 											{% endif %}
 
+                      <!--Si somos super admin mostramos las rutas-->
+                      
+                      {% if is_granted('ROLE_SUPER_ADMIN') %}
+                        <a href="/config/new">Nueva configuración</a>
+                        <a href="/config/all">Todas las configuraciones</a>
+											{% endif %}
                     </div>
             </span>
 
